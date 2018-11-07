@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjypc.dao.UserDao">
+    <!--根据id查找用户-->
+    <select id="findUserById"  parameterType="Integer" resultType="com.bjypc.bean.User">
+        SELECT * from user where id=#{id}
+    </select>
+    <!--根据用户名和密码查找用户-->
+    <select id="findUserByUsername"  parameterType="com.bjypc.bean.User" resultType="com.bjypc.bean.User">
+        SELECT * from user where username=#{username} and password=#{password}
+    </select>
+</mapper>

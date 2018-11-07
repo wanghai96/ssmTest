@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjypc.dao.CustomerDao">
+    <!--根据id查找用户-->
+    <select id="findCustomerById"  parameterType="Integer" resultType="com.bjypc.bean.Customer">
+        SELECT * from t_customer where id=#{id}
+    </select>
+    <select id="findCustomerAll" resultType="com.bjypc.bean.Customer">
+        select * from t_customer
+    </select>
+    <update id="updateCustomer" parameterType="com.bjypc.bean.Customer">
+        UPDATE t_customer set username=#{username},jobs=#{jobs},phone=#{phone} where id=#{id}
+    </update>
+    <delete id="deleteCustomer" parameterType="Integer">
+        DELETE from t_customer where id=#{id}
+    </delete>
+    <insert id="insertCustomer" parameterType="com.bjypc.bean.Customer">
+        insert into t_customer(username,jobs,phone) values(#{username},#{jobs},#{phone})
+    </insert>
+</mapper>
